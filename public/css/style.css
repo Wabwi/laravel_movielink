@@ -273,7 +273,7 @@ h2 {
 }
 .row_1 {
 	margin-top: 15px;
-	background-image: url( ../img/iron_man_comic_art-wallpaper-1920x1200.jpg);
+	background-image: url( ../storage/images/iron_man_comic_art-wallpaper-1920x1200.jpg);
 	background-attachment: fixed;
 }
 
@@ -294,14 +294,14 @@ h2 {
 .jumbolist {
 	padding: 5px;
 	border-bottom: .4px solid LightGray;
-	background-image: url( '../img/shut_up_and_love_minions-wallpaper-1920x1200.jpg');
+	background-image: url( '../storage/images/shut_up_and_love_minions-wallpaper-1920x1200.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 
 ul.other_movies_list {
-	list-style-image: url('../img/cinema_icon.png');
+	list-style-image: url('../storage/images/cinema_icon.png');
 	list-style-position: inside;
 
 
@@ -452,7 +452,7 @@ footer {
 
 @media only screen and ( max-width: 1024px ) {
 	.row_1 {
-		background-image: url( '../storage/images/iron_man_comic_art-wallpaper-1920x1200.jpg');
+		background-image: url( ../storage/images/iron_man_comic_art-wallpaper-1920x1200.jpg);
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;

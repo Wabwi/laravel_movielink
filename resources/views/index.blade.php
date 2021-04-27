@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-    <link rel="stylesheet" href="design/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css">
 
     {{-- <link rel="stylesheet" type="text/css" href="design/style.css"> --}}
 
@@ -85,9 +85,21 @@
 
         }
 
-        .brand a {
+        .brand a,
+        .option {
             text-decoration: none;
             color: white;
+        }
+
+        .option {
+            padding: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .options {
+            margin-right: auto;
+            margin-top: 20px;
+
         }
 
         .link {
@@ -147,14 +159,14 @@
 <body>
     <div class="">
         @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            <div class="options">
                 @auth
-                    <a href="{{ url('/home') }}" class="text-sm text-light underline">Home</a>
+                    <a href="{{ url('/home') }}" class="text-sm text-light option">Home</a>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-light underline">Log in</a>
+                    <a href="{{ route('login') }}" class="text-sm text-light option">Log in</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-light underline">Register</a>
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-light option">Register</a>
                     @endif
                 @endauth
             </div>
@@ -168,8 +180,6 @@
                 class="link">Link</span></a>
 
     </div>
-
-
 
     <form method="POST" action="search_result.php">
         <div class="search_box">
