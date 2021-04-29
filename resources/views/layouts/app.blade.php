@@ -62,7 +62,7 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('movies') }}">{{ __('Movies') }}</a>
+                            <a class="nav-link" href="{{ route('movies') }}">Movies</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('add_movie') }}">{{ __('Add Movies') }}</a>
@@ -76,7 +76,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                         document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 

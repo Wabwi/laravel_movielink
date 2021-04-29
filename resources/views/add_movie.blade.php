@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 @endif
-                <form method="POST" action="{{ route('movies') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('add_movie') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="movie_name">Name</label>

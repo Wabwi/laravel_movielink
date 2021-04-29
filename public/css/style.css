@@ -226,7 +226,7 @@
 .movie_img {
 	height: 250px !important;
 	width: 150px !important;
-	border: 1px solid transparent;
+	border: 3px solid whitesmoke;
 	margin: 5px;
 }
 
@@ -234,6 +234,14 @@
 	margin: 20px;
 }
 
+.movie_img img {
+	width: 150px;
+	height: 225;
+}
+
+.details_download {
+	width: 440px;
+}
 
 
 

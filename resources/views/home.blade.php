@@ -145,36 +145,30 @@
 
                 <div class="container">
                     <div class="row">
-                        <?php if (isset($_SESSION['username'])) {
-                        $username = $_SESSION['username']; ?>
-                        <div class="col-sm-12 text-center text-white">
-                            <h3>Admin <?php echo $username; ?>!</h3>
-                            <p>You can now: add Movies<br>
-                                get notified of new Movies<br>
-                                view extra movies and features<br>
-                                and be connected !
+                        @auth
+                            <div class="col-sm-12 text-center text-white">
+                                <h3>Admin {{ auth()->user()->name }}!</h3>
+                                <p>You can now: add Movies<br>
+                                    get notified of new Movies<br>
+                                    view extra movies and features<br>
+                                    and be connected !
 
-                            </p>
+                                </p>
 
-                        </div>
+                            </div>
+                        @endauth
 
-                        <?php
-                        } else {
-                        ?>
-                        <div class="col-sm-12 text-center text-white">
-                            <h3>Create Account Now To Gain Admin Priviledges!</h3>
-                            <p>You can add Movies<br>
-                                You will get notified of new Movies<br>
-                                You can be the Admin
+                        @guest
+                            <div class="col-sm-12 text-center text-white">
+                                <h3>Create Account Now To Gain Admin Priviledges!</h3>
+                                <p>You can add Movies<br>
+                                    You will get notified of new Movies<br>
+                                    You can be the Admin
 
-                            </p>
+                                </p>
 
-                        </div>
-                        <?php
-                        } ?>
-
-
-
+                            </div>
+                        @endguest
                     </div>
 
                 </div>

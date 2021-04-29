@@ -7,6 +7,7 @@ use App\Models\Movie;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
+
 class MovieController extends Controller
 {
     /**
@@ -16,7 +17,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        dd('movies');
+        $movies = Movie::latest()->paginate(20);
+        return view('movies', ['movies' => $movies]);
     }
 
     /**
@@ -32,33 +34,32 @@ class MovieController extends Controller
     
     public function store(Request $request)
     {
-        //dd($request->user()->id);
-        //validation
-
         
+        //validation
         $this -> validate($request, [
             'movie_name' => ['required', 'string', 'max:255'],
             'link' => ['required', 'url'],
-            'movie_img' => ['required'],
+            'movie_img' => ['required', 'mimes:png,bmp,jpeg,jpg,gif,svg', 'max:2048'],
             'rate' => ['integer', 'max:10', 'min:1'],
             'year' => ['required', 'integer', 'digits:4', 'min:1900', 'max:'.(date('Y')+1)],
         ]);
 
-        
-
         //insert into DB
         $name = $request->file('movie_img')->getClientOriginalName();
-        $request->file('movie_img')->store('public/images/');
-        $user_id = $request->user()->id;
+        $movie_img = $request->file('movie_img');
+        $name_h = time().$name;
+        $request->file('movie_img')->storeAs('public/images/', $name_h);
+        
+
         Movie::create([
             'name'=> $request -> movie_name,
-            'image'=> $name,
+            'image'=> $name_h,
             'description'=> $request -> movie_description,
             'link'=> $request -> link,
             'downloads'=>0,
             'rate'=> $request -> rate,
             'year'=> $request -> year,
-            'user_id'=> $user_id,
+            'user_id'=> $request->user()->id,
         ]);
         
         // $movie = new Movie();
@@ -84,7 +85,9 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        $movie = Movie::find($id);
+
+        return view('download', ['movie' => $movie]);
     }
 
     /**
@@ -96,7 +99,7 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
