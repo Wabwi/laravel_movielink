@@ -17,6 +17,7 @@ class Movie extends Model
         'rate',
         'year',
         'link',
+        'user_id',
     ];
 
 

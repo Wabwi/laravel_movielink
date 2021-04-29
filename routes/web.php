@@ -22,8 +22,8 @@ Auth::routes();
 
 //movies
 Route::get('/movies', [MovieController::class, 'index'])->name('movies');
-
+Route::post('/movies/add_movie', [MovieController::class, 'store'])->name('movies');
 Route::get('/movies/add_movie', [MovieController::class, 'add_movie_form'])->name('add_movie');
-Route::post('/movies/add_movie', [MovieController::class, 'store']);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
